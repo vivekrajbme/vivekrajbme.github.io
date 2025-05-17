@@ -1,10 +1,9 @@
----
 layout:  home
 title:   "About Me"
 permalink: /
 author_profile: true
 author:   vivek-raj
----
+
 
 ## 👋 Hello!
 
