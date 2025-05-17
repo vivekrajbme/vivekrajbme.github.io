@@ -1,8 +1,7 @@
-# _data/authors.yml
-vivek-raj:  
+vivek-raj:
   name:    "Vivek Raj"
-  avatar:  "/assets/images/profile.jpg"        # upload your headshot here
-  bio:     "Final-year PhD candidate in Biomedical Engineering focused on motion intent detection via image processing & ML."
+  avatar:  "/assets/images/profile.jpg"  
+  bio:     "Final-year PhD candidate focused on upper-limb motion intent detection via computer vision & ML."
   location:"India"
   links:
     - label: "GitHub"
@@ -14,4 +13,3 @@ vivek-raj:
     - label: "Google Scholar"
       icon:  "ai ai-google-scholar"
       url:   "https://scholar.google.com/citations?user=XXXX"
-
