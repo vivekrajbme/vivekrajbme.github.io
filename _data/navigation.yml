@@ -1,9 +1,9 @@
 main:
-  - title: "Home"
+  - title: "About me"
     url:   /
   - title: "Research"
     url:   /research/
-  - title: "Blog"
+  - title: "Articles"
     url:   /year-archive/
-  - title: "About"
-    url:   /about/
+  - title: "Contact me"
+    url:   /contact/
