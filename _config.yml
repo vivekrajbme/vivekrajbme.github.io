@@ -28,10 +28,6 @@ paginate: 5
 paginate_path: "/page:num/"
 include:
   - _pages
-
-# -----------------------------------------------------------------------------
-# Author Sidebar (for your custom authors.yml)
-# -----------------------------------------------------------------------------
-# We’ll create _data/authors.yml in the next step.
+  
 ---
 
