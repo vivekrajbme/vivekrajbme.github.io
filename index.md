@@ -16,7 +16,8 @@ I'm **Vivek Raj**, a final-year PhD student in Biomedical Engineering at IIT, wo
 
 ## 📝 Publications
 
-- **Your Paper Title**, *Journal Name*, 2024. [PDF/DOI link](#)
+- Toward Markerless, Noncontact Optical Myography for Prosthetic Control of Multiple Degrees of Freedom, *IEEE SENSORS*, 2024. [https://ieeexplore.ieee.org/abstract/document/10811820](#)
+- Feature selection for attention demanding task induced EEG detection, *IEEE APSCON*,[https://ieeexplore.ieee.org/abstract/document/9276710](#)
 
 ## 🔬 Research Summary
 
