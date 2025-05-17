@@ -1,8 +1,31 @@
----
+layout: single
+title: "About Me"
 permalink: /about/
-title: "About"
+author_profile: true
 ---
 
-Tempor velit sint sunt ipsum tempor enim ad qui ullamco. Est dolore anim ad velit duis dolore minim sunt aliquip amet commodo labore. Ut eu pariatur aute ea aute excepteur laborum. Esse ea esse excepteur minim mollit qui cillum excepteur ex dolore magna. Labore deserunt fugiat incididunt incididunt sint ea. Consequat dolore aute laboris quis proident quis non et est consectetur ex eiusmod sit culpa.
+## 👋 Hello!
 
-Cupidatat ea do et in excepteur in. Ad nostrud ut est esse eu duis ea sunt eiusmod. Aliquip tempor veniam sint elit fugiat. Velit incididunt laboris amet incididunt labore dolore irure velit excepteur commodo deserunt laborum. Consectetur eu fugiat veniam veniam Lorem labore magna eiusmod. Ea occaecat reprehenderit pariatur consectetur minim labore ut aliquip.
+I'm **Vivek Raj**, a final-year PhD student in Biomedical Engineering at IIT, working on:
+
+- Upper limb **motion intent detection**
+- **Computer vision** and **marker tracking**
+- IMU sensor fusion and Kalman filtering
+- Machine learning for gesture recognition
+
+## 🧠 Research Summary
+
+My research enables real-time decoding of hand movements to control assistive technologies, combining signal processing with AI for improved rehabilitation outcomes.
+
+## 📝 Publications
+
+- **Title of Your Paper** – Journal Name, Year  
+  [DOI or PDF link](#)
+
+## 💬 Blog (Coming Soon)
+
+I'll post short, illustrated summaries of recent research articles in:
+
+- Human-machine interaction
+- Biomedical signal/image processing
+- Deep learning for motion tracking
