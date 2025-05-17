@@ -1,1 +1,17 @@
+# _data/authors.yml
+vivek-raj:  
+  name:    "Vivek Raj"
+  avatar:  "/assets/images/profile.jpg"        # upload your headshot here
+  bio:     "Final-year PhD candidate in Biomedical Engineering focused on motion intent detection via image processing & ML."
+  location:"India"
+  links:
+    - label: "GitHub"
+      icon:  "fab fa-github"
+      url:   "https://github.com/vivekrajbme"
+    - label: "LinkedIn"
+      icon:  "fab fa-linkedin"
+      url:   "https://linkedin.com/in/your-linkedin-id"
+    - label: "Google Scholar"
+      icon:  "ai ai-google-scholar"
+      url:   "https://scholar.google.com/citations?user=XXXX"
 
