@@ -13,14 +13,10 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: MM
-email:
+title: Vivek Raj
+email: excevivek@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-twitter_username: username
-github_username: username
+  
 minimal_mistakes_skin: default
 search: true
 
@@ -57,23 +53,55 @@ plugins:
   - jemoji
   - jekyll-include-cache
 
+
+# SITE IDENTITY
+title: "Vivek Raj"
+description: "PhD Researcher in Biomedical Engineering | Image Processing & Motion Intent Detection"
+url: "https://vivekrajbme.github.io"
+baseurl: ""
+
+# REMOTE THEME
+remote_theme: "mmistakes/minimal-mistakes"
+plugins:
+  - jekyll-remote-theme
+  - jekyll-include-cache
+
+# AUTHOR SIDEBAR
 author:
-  name   : "First Lastname"
-  avatar : "/assets/images/bio-photo.jpg"
-  bio    : "My awesome biography constrained to a sentence or two goes here."
+  name:    "Vivek Raj"
+  avatar:  "/assets/images/profile.jpg"   # upload your photo here
+  bio:     "Final-year PhD candidate focused on computer-vision-based upper limb motion intent detection."
+  location: "India"
   links:
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
     - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+      icon:  "fab fa-github"
+      url:   "https://github.com/vivekrajbme"
+    - label: "LinkedIn"
+      icon:  "fab fa-linkedin"
+      url:   "https://linkedin.com/in/your-linkedin-id"
+    - label: "Google Scholar"
+      icon:  "ai ai-google-scholar"
+      url:   "https://scholar.google.com/citations?user=XXXX"
+
+# NAVIGATION (header menu)
+# Minimal Mistakes looks in _data/navigation.yml by default, but you can also define it here:
+nav:
+  - title: "Home"
+    url:   /
+  - title: "Research"
+    url:   /research/
+  - title: "Blog"
+    url:   /year-archive/
+
+# FOOTER LINKS (optional)
+footer:
+  links:
+    - label: "GitHub"
+      icon:  "fab fa-github"
+      url:   "https://github.com/vivekrajbme"
+    - label: "LinkedIn"
+      icon:  "fab fa-linkedin"
+      url:   "https://linkedin.com/in/your-linkedin-id"
 
 footer:
   links:
