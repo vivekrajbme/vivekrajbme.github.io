@@ -1,4 +1,5 @@
 ---
+layout: posts
 title: "BIOMEDICA: Building the World's Largest Medical Vision-Language Dataset and Model"
 date: 2025-05-30
 categories: [blog]
