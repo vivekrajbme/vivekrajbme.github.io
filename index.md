@@ -25,6 +25,6 @@ I'm **Vivek Raj**, a final-year PhD student in Biomedical Engineering at IIT, wo
 
 I develop algorithms that decode hand and wrist movements in real time to drive rehabilitation robots and prostheses.
 
-## 💬 Blog (Coming Soon)
+## 💬 Blog (Articles Section)
 
 Weekly, I’ll post illustrated summaries of key papers in computer vision, biomedical signal processing, and human-robot interaction.
