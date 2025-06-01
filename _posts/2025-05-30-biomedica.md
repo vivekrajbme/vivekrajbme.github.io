@@ -6,7 +6,7 @@ categories: [blog]
 tags: [biomedical imaging, computer vision, research highlight, dataset]
 author: vivek-raj
 
-sidebar : false
+sidebar: false
 ---
 
 ## 🏥 Bridging Vision and Language in Biomedical Research: A Human Perspective on BIOMEDICA
