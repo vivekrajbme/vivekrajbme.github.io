@@ -7,6 +7,7 @@ baseurl:     ""       # no leading slash
 # Remote Theme & Plugins
 # -----------------------------------------------------------------------------
 remote_theme: "mmistakes/minimal-mistakes"
+
 plugins:
   - jekyll-remote-theme
   - jekyll-paginate
