@@ -1,6 +1,6 @@
 ---
-layout: year-archive
+layout: posts
 title: "Blog Articles"
-permalink: /year-archive/
+permalink: /posts/
 author_profile: false
 ---
