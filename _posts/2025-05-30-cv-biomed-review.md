@@ -1,6 +1,6 @@
 ---
 title: "BIOMEDICA: Building the World's Largest Medical Vision-Language Dataset and Model"
-date: 1025-05-30
+date: 2025-05-30
 categories: [blog]
 tags: [biomedical imaging, computer vision, research highlight, dataset]
 author: vivek-raj
