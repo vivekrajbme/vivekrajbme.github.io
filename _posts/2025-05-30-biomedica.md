@@ -5,7 +5,7 @@ date: 2025-05-30
 categories: [blog]
 tags: [biomedical imaging, computer vision, research highlight, dataset]
 author: vivek-raj
-page_width: full
+fullwidth: true
 sidebar: false
 ---
 
