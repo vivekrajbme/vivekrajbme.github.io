@@ -1,7 +1,7 @@
 vivek-raj:
   name:    "Vivek Raj"
   avatar:  "/assets/images/meandShillong.jpg"  
-  bio:     "Research scholar focused on upper-limb motion intent detection via computer vision & ML."
+  bio:     "PhD candidate, IIT Delhi — vision-based prosthetic control via Optical Myography. Computer vision, deep learning & clinical research."
   location: "India"
   links:
     - label: "GitHub"

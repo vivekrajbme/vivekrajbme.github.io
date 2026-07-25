@@ -8,12 +8,13 @@ author: vivek-raj
 
 ## 📝 Overview
 
-My PhD research develops **real-time algorithms** for decoding upper-limb motion intent to drive **assistive and rehabilitation devices**. By combining **computer-vision marker tracking**, **IMU-based orientation estimation**, and **machine-learning classification**, I’ve built a robust pipeline that:
+My PhD research develops **real-time Optical Myography (OMG)** — a camera-based alternative to EMG — for **proportional control of upper-limb prostheses**. Across three progressively less-constrained pipelines (marker-assisted → markerless classical → markerless deep learning), I've built and clinically validated a system that:
 
-- **Tracks** reflective markers on the forearm with high accuracy  
-- **Fuses** vision and inertial data to estimate joint angles  
-- **Classifies** intended grasp and pronation–supination gestures  
-- **Controls** a proportional assistive interface in real time  
+- **Tracks** hand/forearm motion from a single USB camera, with and without reflective markers  
+- **Fuses** vision, IMU, and data-glove signals for ground truth and orientation estimation  
+- **Classifies/regresses** grasp, wrist flexion-extension, and pronation-supination in real time  
+- **Controls** a proportional prosthetic interface at <90 ms end-to-end latency  
+- Has been **clinically validated on transradial amputees at AIIMS New Delhi** (AIIMS IEC A00086/03.11.2023), not just able-bodied subjects
 
 ---
 
@@ -39,28 +40,40 @@ My PhD research develops **real-time algorithms** for decoding upper-limb motion
 - **Validation**: Employed peak-based k-fold cross-validation to avoid data leakage, using MSE, NRMSE, and R² as metrics.  
 - **Results**: LSTM achieved **93% classification accuracy** on six grasp/pronation-supination gestures.
 
+### 5. Markerless Control for Amputees (Pipeline B)
+- **StumpSegmenter**: Otsu thresholding + YCrCb skin-tone masking for residual-limb segmentation — no markers, no electrodes, no contact.  
+- **Feature selection**: shape, texture, and pose features selected by `|Pearson r| > 0.3` and motion SNR > 2.0, with EMA smoothing (α = 0.85–0.92) for jitter suppression.  
+- **Results**: MSE 0.031 (Linear) / 0.063 (SVR) offline; extended to a validated real-time TAC loop across multiple amputee subjects.
+
+### 6. Markerless Control via Deep Learning (Pipeline C)
+- **Model**: MobileNetV3-small encoder + custom depthwise decoder, trained on **SAM2 (Meta AI)** pseudo-labels (IoU > 0.9) — solving the lack of any public amputee OMG dataset.  
+- **Training**: Combined BCE + Dice loss; CPU-inference validated for embedded deployment; exported to **ONNX** for cross-platform use.  
+- **Results**: 100% TAC success rate in able-bodied preliminary validation.
+
 ---
 
 ## 📊 Results & Impact
 
-| Component             | Metric / Outcome                         |
-|-----------------------|------------------------------------------|
-| Marker Tracking       | 87.5% marker detection rate (14/16)      |
-| Orientation Estimation| < 2° RMSE (yaw, pitch, roll)             |
-| Classification        | 93% accuracy on 6 gestures (LSTM)        |
-| Latency               | < 50 ms total loop time                  |
+| Component               | Metric / Outcome                                   |
+|--------------------------|-----------------------------------------------------|
+| Marker Tracking          | 87.5% marker detection rate (14/16)                 |
+| Orientation Estimation   | < 2° RMSE (yaw, pitch, roll)                        |
+| Gesture Classification   | 93% accuracy on 6 gestures (LSTM)                   |
+| End-to-end Latency       | < 90 ms, real-time control loop at 11–30 Hz         |
+| Able-bodied TAC (n=13)   | 90.6–100% task success, 0.53–0.56 bits/s throughput |
+| Transradial amputees (n=3, AIIMS) | 83–100% task success, 0.29–0.47 bits/s throughput |
 
-These results demonstrate a **feasible, real-time motion-intent decoding system** suitable for embedded assistive devices and rehabilitation robotics.
+These results — validated on **both able-bodied and amputee subjects in a clinical setting** — demonstrate a feasible, real-time, contactless motion-intent decoding system that matches published high-density EMG benchmarks at under 5% of the hardware cost.
 
 ---
 
 ## 🚀 Future Directions
 
-- **Embedded Deployment**: Port the LSTM inference to edge GPUs (e.g., Jetson Nano) for untethered operation.  
-- **Multimodal Fusion**: Integrate EMG signals alongside vision and IMU for richer intent cues.  
-- **Adaptive Learning**: Develop online calibration methods to personalize models per user.  
-- **Clinical Validation**: Collaborate with rehabilitation practitioners to evaluate efficacy in patient trials.
+- **Embedded Deployment**: Port inference to edge GPUs (e.g., Jetson Nano) for fully untethered, on-device operation.  
+- **Multimodal Fusion**: Integrate EMG signals alongside vision for richer intent cues where contact is acceptable.  
+- **Adaptive Learning**: Online calibration methods to personalize models per user without retraining from scratch.  
+- **Broader Clinical Validation**: Expand the amputee cohort and long-term at-home evaluation with rehabilitation partners.
 
 ---
 
-*This body of work lays the foundation for next-generation human-machine interfaces that can restore or augment upper-limb function with high accuracy and low latency.*  
+*This body of work — 1 published journal paper, 2 under review, and a filed patent — lays the foundation for next-generation, contactless human-machine interfaces that can restore upper-limb function without the cost and calibration burden of EMG.*
