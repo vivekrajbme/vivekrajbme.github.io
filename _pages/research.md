@@ -6,74 +6,42 @@ author_profile: true
 author: vivek-raj
 ---
 
-## 📝 Overview
+## The Problem
 
-My PhD research develops **real-time Optical Myography (OMG)** — a camera-based alternative to EMG — for **proportional control of upper-limb prostheses**. Across three progressively less-constrained pipelines (marker-assisted → markerless classical → markerless deep learning), I've built and clinically validated a system that:
+Myoelectric prostheses control hand and wrist movement using EMG electrodes on the skin. This requires direct contact, frequent recalibration, and expert fitting — contributing to the roughly 50% abandonment rate of myoelectric prostheses worldwide.
 
-- **Tracks** hand/forearm motion from a single USB camera, with and without reflective markers  
-- **Fuses** vision, IMU, and data-glove signals for ground truth and orientation estimation  
-- **Classifies/regresses** grasp, wrist flexion-extension, and pronation-supination in real time  
-- **Controls** a proportional prosthetic interface at <90 ms end-to-end latency  
-- Has been **clinically validated on transradial amputees at AIIMS New Delhi** (AIIMS IEC A00086/03.11.2023), not just able-bodied subjects
+## The Approach: Optical Myography (OMG)
 
----
+My PhD work replaces EMG electrodes with a single standard USB camera. The camera observes the residual limb and decodes intended grasp, wrist flexion-extension, and pronation-supination — contactless, with no calibration burden.
 
-## 🔬 Methods
+I developed this across three progressively less-constrained pipelines:
 
-### 1. Marker-Based Visual Tracking  
-- **Preprocessing**: Applied morphological opening/closing and area thresholds to isolate high-speed reflective markers on the forearm.  
-- **Filtering**: Implemented a constant-velocity Kalman filter with adaptive process noise to handle marker occlusions and intermittent disappearances.  
-- **Performance**: Achieved an average detection rate of **14 out of 16 markers**, improving over baseline methods.
+**1. Marker-assisted control** — Reflective markers on the forearm are tracked with a Kalman-filtered computer vision pipeline; angular features drive a regression model for proportional control. This established the feasibility and accuracy ceiling of the approach.
 
-### 2. IMU Orientation Estimation  
-- **Hardware**: Integrated an Adafruit BNO08x IMU (9-DOF) with a QT Py microcontroller, and earlier prototypes using FXOS8700 + FXAS21002 on a Teensy LC.  
-- **Sensor Fusion**: Utilized onboard fusion algorithms to compute quaternions, then extracted yaw, pitch, and roll in MATLAB.  
-- **Accuracy**: Maintained orientation RMSE below **2°** across all three Euler angles.
+**2. Markerless control (classical CV)** — Removes the need for markers entirely, using skin-tone and shape-based segmentation to track the residual limb directly, extending the system to work on amputees without any attached hardware.
 
-### 3. Multimodal Data Synchronization  
-- **Setup**: Synchronized video frames (`snapshot(webcam)`) with IMU logs. Prompts were rendered on an external display to cue subjects.  
-- **Implementation**: Streamlined RealTimeDC MATLAB code to capture imagery and sensor streams in a unified loop, ensuring <50 ms end-to-end latency.
+**3. Markerless control (deep learning)** — A lightweight neural segmentation model (trained using Meta AI's SAM2 to auto-generate labels, since no public amputee dataset exists) makes the system robust enough for real-world deployment on embedded hardware.
 
-### 4. Intent Classification & Model Training  
-- **Feature Extraction**: Segmented data around movement peaks, extracting time-domain features (e.g., mean, variance, peak amplitudes).  
-- **Models**: Evaluated Ridge Regression (RR), Support Vector Regression (SVR), CatBoost, and LSTM networks.  
-- **Validation**: Employed peak-based k-fold cross-validation to avoid data leakage, using MSE, NRMSE, and R² as metrics.  
-- **Results**: LSTM achieved **93% classification accuracy** on six grasp/pronation-supination gestures.
+## Results
 
-### 5. Markerless Control for Amputees (Pipeline B)
-- **StumpSegmenter**: Otsu thresholding + YCrCb skin-tone masking for residual-limb segmentation — no markers, no electrodes, no contact.  
-- **Feature selection**: shape, texture, and pose features selected by `|Pearson r| > 0.3` and motion SNR > 2.0, with EMA smoothing (α = 0.85–0.92) for jitter suppression.  
-- **Results**: MSE 0.031 (Linear) / 0.063 (SVR) offline; extended to a validated real-time TAC loop across multiple amputee subjects.
+| Measure | Outcome |
+|---|---|
+| End-to-end latency | < 90 ms — real-time control at 11–30 Hz |
+| Able-bodied task success (n=13) | 90.6–100%, 0.53–0.56 bits/s throughput |
+| Transradial amputee task success (n=3, AIIMS-approved trial) | 83–100%, 0.29–0.47 bits/s throughput |
 
-### 6. Markerless Control via Deep Learning (Pipeline C)
-- **Model**: MobileNetV3-small encoder + custom depthwise decoder, trained on **SAM2 (Meta AI)** pseudo-labels (IoU > 0.9) — solving the lack of any public amputee OMG dataset.  
-- **Training**: Combined BCE + Dice loss; CPU-inference validated for embedded deployment; exported to **ONNX** for cross-platform use.  
-- **Results**: 100% TAC success rate in able-bodied preliminary validation.
+This is the first real-time, closed-loop, vision-based proportional prosthetic control demonstrated on amputees in India, matching published high-density EMG benchmarks at under 5% of the hardware cost.
+
+## What This Solves
+
+A cheaper, contactless, easier-to-fit alternative to EMG-based prosthetic control — validated end-to-end from lab bench to clinical trial, with a filed patent and a growing publication record.
 
 ---
 
-## 📊 Results & Impact
+## Publications & Patent
 
-| Component               | Metric / Outcome                                   |
-|--------------------------|-----------------------------------------------------|
-| Marker Tracking          | 87.5% marker detection rate (14/16)                 |
-| Orientation Estimation   | < 2° RMSE (yaw, pitch, roll)                        |
-| Gesture Classification   | 93% accuracy on 6 gestures (LSTM)                   |
-| End-to-end Latency       | < 90 ms, real-time control loop at 11–30 Hz         |
-| Able-bodied TAC (n=13)   | 90.6–100% task success, 0.53–0.56 bits/s throughput |
-| Transradial amputees (n=3, AIIMS) | 83–100% task success, 0.29–0.47 bits/s throughput |
-
-These results — validated on **both able-bodied and amputee subjects in a clinical setting** — demonstrate a feasible, real-time, contactless motion-intent decoding system that matches published high-density EMG benchmarks at under 5% of the hardware cost.
-
----
-
-## 🚀 Future Directions
-
-- **Embedded Deployment**: Port inference to edge GPUs (e.g., Jetson Nano) for fully untethered, on-device operation.  
-- **Multimodal Fusion**: Integrate EMG signals alongside vision for richer intent cues where contact is acceptable.  
-- **Adaptive Learning**: Online calibration methods to personalize models per user without retraining from scratch.  
-- **Broader Clinical Validation**: Expand the amputee cohort and long-term at-home evaluation with rehabilitation partners.
-
----
-
-*This body of work — 1 published journal paper, 2 under review, and a filed patent — lays the foundation for next-generation, contactless human-machine interfaces that can restore upper-limb function without the cost and calibration burden of EMG.*
+- **[Published]** *Toward Markerless, Noncontact Optical Myography for Prosthetic Control of Multiple Degrees of Freedom*, IEEE Sensors Journal, Feb 2025. [DOI: 10.1109/JSEN.2024.3512454](https://ieeexplore.ieee.org/abstract/document/10811820)
+- **[Under Review]** *Optical Myography-based Measurement of Proportional Hand and Wrist Kinematics for Prosthetic Control*, JNER
+- **[Under Review]** *A Single-Camera Reflective-Marker System for Real-Time Proportional Control of Wrist and Hand Motions*, IEEE Sensors Journal
+- **[Filed, Nov 2024]** Patent — Optical Myography-based motion intent detection for prosthetic control, FITT, IIT Delhi
+- *Feature Selection for Attention Demanding Task Induced EEG Detection*, IEEE ASPCON, 2020. [DOI: 10.1109/ASPCON49795.2020.9276710](https://ieeexplore.ieee.org/abstract/document/9276710)
