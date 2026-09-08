@@ -17,6 +17,16 @@ Think of computer vision as answering one question over and over, at increasing 
 
 The roadmap has five stages. Don't skip stage 1 to get to the exciting deep learning parts — I have interviewed candidates who could recite ResNet's architecture but couldn't explain why a Sobel filter is separable. That gap gets found in the first interview round.
 
+**This page is the syllabus.** Each stage below now has its own deep-dive lecture page with full theoretical explanations, working code you can run, exercises, and curated links to papers, courses, and videos:
+
+1. [Stage 1 — Foundations](/learn-computer-vision/stage-1-foundations/): image formation, sampling, linear algebra, classical image processing (built from scratch in NumPy)
+2. [Stage 2 — Classical Computer Vision](/learn-computer-vision/stage-2-classical-cv/): feature detection, geometric vision, pre-deep-learning segmentation
+3. [Stage 3 — Deep Learning for Vision](/learn-computer-vision/stage-3-deep-learning/): CNNs, training mechanics, object detection, segmentation
+4. [Stage 4 — Transformers, Self-Supervision & Generative Models](/learn-computer-vision/stage-4-modern-era/): ViT, SimCLR/BYOL/DINO, CLIP/LLaVA, GANs/diffusion
+5. [Stage 5 — Specialization & Interview Prep](/learn-computer-vision/stage-5-specialization/): NeRF/Gaussian Splatting, video, edge deployment, current SOTA, and how CV interviews are actually structured
+
+Work through them in order — each one assumes the last. What follows below is the same roadmap in overview form; use it as a map back to any topic.
+
 ---
 
 ## Stage 1 — Foundations (Weeks 1–4)
