@@ -8,7 +8,7 @@ author: vivek-raj
 
 I'm always happy to hear from fellow researchers, potential collaborators, or anyone interested in vision-based prosthetic control.
 
-- 📧 **Email:** [excevivek@gmail.com](mailto:excevivek@gmail.com)
+- 📧 **Email:** [dlforvivek@gmail.com](mailto:dlforvivek@gmail.com)
 - 📍 **Location:** New Delhi, India
 - 💼 **LinkedIn:** [linkedin.com/in/vivekraj-cvml](https://www.linkedin.com/in/vivekraj-cvml)
 - 🐙 **GitHub:** [github.com/vivekrajbme](https://github.com/vivekrajbme)
