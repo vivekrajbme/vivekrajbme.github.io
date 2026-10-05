@@ -5,3 +5,5 @@ main:
     url:   /research/
   - title: "Contact me"
     url:   /contact/
+  - title: "CV"
+    url:   /assets/files/VivekRaj_CV.pdf
