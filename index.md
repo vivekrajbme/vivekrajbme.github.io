@@ -25,7 +25,7 @@ I'm **Vivek Raj**, a PhD candidate in Biomedical Engineering at **IIT Delhi**.
 - **[Under Review]** *A Single-Camera Reflective-Marker System for Real-Time Proportional Control of Wrist and Hand Motions*, IEEE Sensors Journal
 - **[Filed, Nov 2024]** Patent — Optical Myography-based motion intent detection for prosthetic control, FITT, IIT Delhi
 
-Full details on the [Research](/research/) page. Download my [CV (PDF)](/assets/files/VivekRaj_CV.pdf).
+Full details on the [Research](/research/) page. Download my [Resume (PDF)](/assets/files/VivekRajResume.pdf).
 
 ## 📬 Get in Touch
 
