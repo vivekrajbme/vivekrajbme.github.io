@@ -18,9 +18,9 @@ I developed this across three progressively less-constrained pipelines:
 
 **1. Marker-assisted control** — Reflective markers on the forearm are tracked with a Kalman-filtered computer vision pipeline; angular features drive a regression model for proportional control. This established the feasibility and accuracy ceiling of the approach.
 
-**2. Markerless control (classical CV)** — Removes the need for markers entirely, using skin-tone and shape-based segmentation to track the residual limb directly, extending the system to work on amputees without any attached hardware.
+**2. Markerless control (classical CV)** — Removes the need for markers entirely, using skin-tone and shape-based segmentation to track the residual limb directly, extending the system to work for individuals with amputation without any attached hardware.
 
-**3. Markerless control (deep learning)** — A lightweight neural segmentation model (trained using Meta AI's SAM2 to auto-generate labels, since no public amputee dataset exists) makes the system robust enough for real-world deployment on embedded hardware.
+**3. Markerless control (deep learning)** — A lightweight neural segmentation model (trained using Meta AI's SAM2 to auto-generate labels, since no public dataset of residual limbs exists) makes the system robust enough for real-world deployment on embedded hardware.
 
 ## Results
 
@@ -28,9 +28,9 @@ I developed this across three progressively less-constrained pipelines:
 |---|---|
 | End-to-end latency | < 90 ms — real-time control at 11–30 Hz |
 | Able-bodied task success (n=13) | 90.6–100%, 0.53–0.56 bits/s throughput |
-| Transradial amputee task success (n=3, AIIMS-approved trial) | 83–100%, 0.29–0.47 bits/s throughput |
+| Task success, individuals with transradial amputation (n=3, AIIMS-approved trial) | 83–100%, 0.29–0.47 bits/s throughput |
 
-This is the first real-time, closed-loop, vision-based proportional prosthetic control demonstrated on amputees in India, matching published high-density EMG benchmarks at under 5% of the hardware cost.
+This is the first real-time, closed-loop, vision-based proportional prosthetic control demonstrated with individuals with amputation in India, matching published high-density EMG benchmarks at under 5% of the hardware cost.
 
 ## What This Solves
 

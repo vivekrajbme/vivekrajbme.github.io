@@ -8,13 +8,13 @@ author:   vivek-raj
 
 ## 👋 Hello!
 
-I'm **Vivek Raj**, a PhD candidate in Biomedical Engineering at **IIT Delhi** (defense: July 2026).
+I'm **Vivek Raj**, a PhD candidate in Biomedical Engineering at **IIT Delhi**.
 
-**The problem:** myoelectric prosthetic hands rely on EMG electrodes — they require direct skin contact, frequent recalibration, and expert fitting, which drives high abandonment rates among amputees.
+**The problem:** myoelectric prosthetic hands rely on EMG electrodes — they require direct skin contact, frequent recalibration, and expert fitting, which drives high abandonment rates among people with upper-limb amputation.
 
 **What I built:** Optical Myography (OMG) — a way to control a prosthetic hand using a single standard USB camera instead of electrodes. It tracks the residual limb in real time and decodes intended hand and wrist movement, with no contact and no calibration burden.
 
-**What it solves:** a contactless, low-cost prosthetic control system that matches published EMG performance benchmarks at a fraction of the hardware cost — validated not just on able-bodied subjects but in clinical trials with transradial amputees at **AIIMS New Delhi**, with up to 100% task success at real-time (<90 ms) latency.
+**What it solves:** a contactless, low-cost prosthetic control system that matches published EMG performance benchmarks at a fraction of the hardware cost — validated not just on able-bodied subjects but in clinical trials with individuals with transradial amputation at **AIIMS New Delhi**, with up to 100% task success at real-time (<90 ms) latency.
 
 ---
 
